@@ -1,0 +1,56 @@
+*{
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	text-decoration: none;
+	border: none;
+	outline: none;
+}
+.contenedor{
+    width: 30%;
+    margin: auto;
+    margin-top: 10%;
+    text-align: center;
+    background-color: rgba(138, 136, 136,0.4);
+    border: solid 4px rgba(110, 245, 155, 0.404);
+    border-radius: 10px;
+    padding: 25px;
+    
+}
+.agregar{
+    margin: auto;
+    margin-top: 20px;
+    display: block;
+    background-color: rgba(83, 182, 116, 0.8);
+    padding: 8px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.titulo{
+    margin: 4%;
+    color: #fff;
+}
+.tituloCampo{
+font-size: 20px;
+color: #fff;
+}
+.campo{
+    margin: 4%;
+    padding: 5px;
+    width: 80%;
+    border-bottom:solid rgba(83, 182, 116, 0.8);
+    background-color: transparent;
+    color: #fff;
+}
+.campo::placeholder { 
+    color: #fff;
+ }
+body{
+    background-image: url("libreriaFondo.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+img{
+    width: 100%;
+}
