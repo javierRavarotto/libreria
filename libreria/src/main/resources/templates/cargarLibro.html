@@ -1,28 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="cargarlibro.css">
-        <nav class="barra">
-        <a  class="link" href="/">inicio</a>
-        <a class="link" href="/cargarLibro">libro</a>
-        <a class="link" href="/cargarEditorial">editorial</a>
-    </nav>
-</head>
-<body>
-   
-    <div class="contenedor">
-    <form action="cargarLibro" method="POST">
-        <h2 class="titulo">Ingrese nombre del autor a cargar</h2>
-        <b class="tituloCampo">nombre</b>
-        <input  class="campo" type="text" placeholder="ingrese nombre"  name="nombre">
-    
-        <button class="agregar">Agregar</button>
-    </form>
-</div>
 
+<head th:fragment="head">
+ 
+    <title>Cargar Libro</title>
+    <link rel="stylesheet" href="cargarlibro.css" />
+    <header th:replace="nav/nav.html"> </header>
+    
+</head>
+
+<body>
+    <div class="contenedor">
+        <form action="cargarLibro" method="POST">
+            <h2 class="titulo">Ingrese datos para cargar libro</h2>
+            <div class="columnas">
+                           <div  class="camposLibro">
+                <b class="tituloCampo">nombre</b>
+                <input class="campo" type="text" placeholder="ingrese nombre" name="nombre" />
+            </div>
+            <div  class="camposLibro">
+                <b class="tituloCampo">isbn</b>
+                <input class="campo" type="text" placeholder="ingrese isbn" name="isbn" />
+            </div>
+            <div  class="camposLibro">
+                <b class="tituloCampo">titulo</b>
+                <input class="campo" type="text" placeholder="ingrese titulo" name="titulo" />
+            </div>
+            <div  class="camposLibro">
+                <b class="tituloCampo">añio</b>
+                <input class="campo" type="text" placeholder="ingrese año" name="anio" />
+            </div>
+            <div  class="camposLibro">
+                <b class="tituloCampo">ejemplares</b>
+                <input class="campo" type="text" placeholder="ingrese ejemplares" name="ejemplares" />
+            </div>
+            <div  class="camposLibro">
+                <b class="tituloCampo">ejemplares prestados</b>
+                <input class="campo" type="text" placeholder="ingrese ejemplaresPrestados" name="ejemplaresPrestados" />
+            </div >
+            <div class="camposLibro">
+                <b class="tituloCampo">ejemplares restantes</b>
+                <input class="campo" type="text" placeholder="ingrese ejemplaresRestantes" name="ejemplaresRestantes" />
+            </div>
+        </div>
+ 
+            <button class="agregar">Agregar</button>
+        </form>
+    </div>
 </body>
+
 </html>

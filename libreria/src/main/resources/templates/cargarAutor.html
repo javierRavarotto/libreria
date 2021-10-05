@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head th:fragment="head">
-    <title>Cargar Editorial</title>
-    <link rel="stylesheet" href="cargarEditorial.css">
-     <header th:replace="nav/nav.html"> </header>
-</head> 
+    <title>Cargar Autor</title>
+    <link rel="stylesheet" href="cargarlibro.css">
+   <header th:replace="nav/nav.html"> </header>
+</head>
 <body>
    
     <div class="contenedor">
-    <form action="cargarEditorial" method="POST">
-        <h2 class="titulo">Ingrese nombre de la editorial a cargar</h2>
+    <form action="cargarAutor" method="POST">
+        <h2 class="titulo">Ingrese nombre del autor a cargar</h2>
         <b class="tituloCampo">nombre</b>
         <input  class="campo" type="text" placeholder="ingrese nombre"  name="nombre">
     

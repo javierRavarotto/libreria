@@ -23,3 +23,43 @@ text-align: center;
     margin-left: 2%;
     margin-right: 2%;
 }
+.contenedor{
+    text-align: center;
+    background-color:tarsparent;
+    width: 99%;
+    border: solid 4px red;
+    height: 530px;
+    
+}
+.contenedorLibros{
+    background-color: #fff;
+    width: 29%;
+    height: 490px;
+    display: inline-flex;
+    margin: 1%;
+}
+.contenedorAutores{
+    background-color: #555;
+    width: 29%;
+    height: 490px;
+    display: inline-flex;
+    margin: 1%;
+}
+.ContenedorEditoriales{
+    background-color:blue;
+    width: 29%;
+    height: 490px;
+    display: inline-flex;
+    margin: 1%;
+    
+
+}
+
+h3{
+    text-align: center;
+    display: inline-flex;
+    background-color: aqua;
+   height: 20px;
+   margin-left: auto;
+    margin-right: auto;
+}
