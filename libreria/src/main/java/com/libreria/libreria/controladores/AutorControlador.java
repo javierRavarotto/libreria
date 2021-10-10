@@ -2,13 +2,12 @@ package com.libreria.libreria.controladores;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
+
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import java.util.List;
-import com.libreria.libreria.entidades.Autor;
+
 import com.libreria.libreria.errores.ErrorServicio;
 import com.libreria.libreria.servicios.AutorServicio;
 
@@ -20,13 +19,19 @@ public class AutorControlador {
 	@Autowired
 	private AutorServicio autorServicio;
 	
+	
+	/*GET*/
 	@GetMapping("/cargarAutor")
-	public String cargarLibro() {
+	public String cargarAutor() {
 		return "cargarAutor.html";
 	}
 	
+	
+	
+	/*POST*/
+	
 	@PostMapping("/cargarAutor")
-	public String registrarLibro(@RequestParam String nombre) {
+	public String registrarAutor(@RequestParam String nombre) {
 		
 		
 		try {
@@ -37,13 +42,12 @@ public class AutorControlador {
 		}
 		return "cargarAutor.html";
 	}
-/*	
-	@GetMapping("/cargarAutor")
-	public String mostrarAutor(Model  model) {
-		
-		List<Autor> listaAutor = autorServicio.mostrarAutor();
-		return "cargarAutor.html";
+	
+
+	@PostMapping("/editarAutor")
+	public String editarAutor(@RequestParam String id,@RequestParam String nombre,@RequestParam Boolean alta ) {
+		return "editarAutor.html";
 	}
-	*/
+
 	
 }

@@ -24,7 +24,7 @@ public class EditorialServicio {
 		Editorial editorial =new Editorial();
 		
 		editorial.setNombre(nombre);
-		editorial.setAlta(true);
+		editorial.setAlta(false);
 		
 		editorialRepositorio.save(editorial);
 	}

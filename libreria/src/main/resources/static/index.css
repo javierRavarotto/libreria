@@ -10,6 +10,7 @@ body{
     background-image: url("libreriaFondo.jpg");
     background-repeat: no-repeat;
     background-size: cover;
+  height: 500px;   
 }
 .barra{
  background-color: rgba(138, 136, 136,0.4);
@@ -28,31 +29,51 @@ text-align: center;
     background-color:tarsparent;
     width: 99%;
     border: solid 4px red;
-    height: 530px;
     
 }
-.contenedorLibros{
-    background-color: #fff;
+.contenedorLibros{  
+     background-color: rgba(138, 136, 136,0.4);
+    border-radius: 10px;
     width: 29%;
-    height: 490px;
-    display: inline-flex;
-    margin: 1%;
-}
-.contenedorAutores{
-    background-color: #555;
-    width: 29%;
-    height: 490px;
-    display: inline-flex;
-    margin: 1%;
-}
-.ContenedorEditoriales{
-    background-color:blue;
-    width: 29%;
-    height: 490px;
-    display: inline-flex;
-    margin: 1%;
+    height: 500px;    
+    display:inline-block;
+    margin:auto;
+      overflow-y: scroll;
     
 
+}
+.contenedorAutores{
+    background-color: rgba(138, 136, 136,0.4);
+    border-radius: 10px;
+    width: 29%;
+height: 500px;
+margin:auto;
+   overflow-y: scroll;
+  scrollbar-color: rgba(0, 0, 0, .5) rgba(0, 0, 0, 0);
+    scrollbar-width: thin;
+   
+    display:inline-block;}
+
+::-webkit-scrollbar {
+    width: 12px;
+}
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
+    border-radius: 10px;
+}
+::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
+}
+.ContenedorEditoriales{
+    background-color: rgba(138, 136, 136,0.4);
+    border-radius: 10px;
+    width: 29%;
+    display:inline-block;
+margin:auto;
+height: 500px;    
+   overflow-y: scroll;
+ 
 }
 
 h3{
@@ -62,4 +83,46 @@ h3{
    height: 20px;
    margin-left: auto;
     margin-right: auto;
+    margin-top: 3%;
+}
+.listas{
+    background-color:transparent ;
+    display: inline-block;
+    margin: 2%;
+    text-align: left;
+  
+    padding: 5px;
+    
+}
+.listass{
+    background-color:transparent ;
+    display: block;
+    margin: 2%;
+    text-align: left;
+  
+    padding: 5px;
+    
+}
+.botones{
+    color: #fff;
+    background:rgba(110, 245, 155, 0.404);
+    padding: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background ease-in .4s;
+  
+}
+.botones:hover{
+    background:rgba(110, 245, 155, 0.8);
+    padding: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.texto{
+    width: 80%;
+    color: #fff;
+    
+    border-bottom: rgba(110, 245, 155, 0.8) solid 1px;
+
+    
 }

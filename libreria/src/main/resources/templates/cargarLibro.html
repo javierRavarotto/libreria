@@ -14,10 +14,7 @@
         <form action="cargarLibro" method="POST">
             <h2 class="titulo">Ingrese datos para cargar libro</h2>
             <div class="columnas">
-                           <div  class="camposLibro">
-                <b class="tituloCampo">nombre</b>
-                <input class="campo" type="text" placeholder="ingrese nombre" name="nombre" />
-            </div>
+                      
             <div  class="camposLibro">
                 <b class="tituloCampo">isbn</b>
                 <input class="campo" type="text" placeholder="ingrese isbn" name="isbn" />
@@ -42,6 +39,20 @@
                 <b class="tituloCampo">ejemplares restantes</b>
                 <input class="campo" type="text" placeholder="ingrese ejemplaresRestantes" name="ejemplaresRestantes" />
             </div>
+            <div class="camposLibro">
+                <b class="tituloCampo">Autores</b>
+ 				<select name="IdAutor">
+ 				<option th:each = "autor : ${autores}" th:value="${autor.id}" th:text="${autor.nombre}" > </option>
+ 				</select>
+            </div> 
+                        <div class="camposLibro">
+                <b class="tituloCampo">Autores</b>
+ 				<select name="IdEditorial">
+ 				<option th:each = "editorial : ${editoriales}" th:value="${editorial.id}" th:text="${editorial.nombre}" > </option>
+ 				</select>
+            </div> 
+
+            
         </div>
  
             <button class="agregar">Agregar</button>

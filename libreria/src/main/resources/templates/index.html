@@ -1,27 +1,58 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-  <head th:fragment="head">
-    <title>Inicio</title>
-    <link rel="stylesheet" href="index.css" />
-  </head>
-  
-  <body>
-   <header th:replace="nav/nav.html"> </header>
-    <div class="contenedor">
-      <div class="contenedorAutores">
-        <h3>Autores</h3>
-           <tr th:each="student: ${Editorial}">
-       
-        <td th:text="${student.nombre}" />
-    </tr>
-      </div>
-      <div class="contenedorLibros">
-        <h3>Libros</h3>
-       </div>
-      <div class="ContenedorEditoriales">
-        <h3>Editorial</h3>
-      </div>
-    </div>
-           
-  </body>
+
+<head th:fragment="head">
+	<title>Inicio</title>
+	<link rel="stylesheet" href="index.css" />
+</head>
+
+<body>
+	<header th:replace="nav/nav.html"> </header>
+	<div class="contenedor">
+		<div class="contenedorAutores">
+			<h3>Algunos de nuestros autores</h3>
+
+			<table class="listas">
+
+				<ol th:each="autor : ${autores}" name="IdAutor"th:if=${autor.alta}>
+					<td class="texto" th:text="${autor.nombre}"></td>
+					<td><button class="botones">Editar</button></td>
+					<td><button class="botones">Baja</button></td>
+					<tr></tr>
+				</ol>
+			</table>
+		</div>
+
+		<div class="contenedorLibros">
+			<h3>Algunos de nuestros libros</h3>
+
+			<table class="listas">
+
+				<ol th:each="libro : ${libros}" name="IdLibro" th:if=${libro.alta}>
+					<td class="texto" th:text="${libro.titulo}"></td>
+					<td><button class="botones">Editar</button></td>
+					<td><button class="botones">Baja</button></td>
+					<tr></tr>
+				</ol>
+			</table>		</div>
+		<div class="ContenedorEditoriales">
+			<h3>Algunas de nuestras Editoriales</h3>
+
+			<table class="listas">
+
+				<ol th:each="editorial : ${editoriales}" name="IdEditorial" th:if=${editorial.alta}>
+					<td class="texto" th:text="${editorial.nombre}"></td>
+					<td><button class="botones">Editar</button></td>
+					<td><button class="botones">Baja</button></td>
+					<tr></tr>
+				</ol>
+			</table>
+
+		</div>
+
+	</div>
+
+
+</body>
+
 </html>

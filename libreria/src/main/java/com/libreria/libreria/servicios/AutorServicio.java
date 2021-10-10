@@ -1,7 +1,6 @@
 package com.libreria.libreria.servicios;
 
-import java.util.ArrayList;
-import java.util.List;
+
 
 import javax.transaction.Transactional;
 
@@ -33,14 +32,24 @@ public class AutorServicio {
 		autorRepositorio.save(autor);
 	}
 	
-	/*
-	public List<Autor> mostrarAutor() {
+	@Transactional
+	public void editarAutor(String id, String nombre , Boolean alta)throws ErrorServicio {
+	
+		if(nombre==null || nombre.isEmpty()) {
+			throw new ErrorServicio("nombre no puede ser nulo");
+		}
+		Autor autor = autorRepositorio.findById(id).get();
+	
 		
-		List<Autor> listaAutor = new ArrayList<Autor>();
+		autor.setNombre(nombre);
+		autor.setAlta(alta);	
 		
-		return listaAutor;
+		autorRepositorio.save(autor);	
 	}
 	
-	*/
+	
+	
+	
+	
 	
 }
