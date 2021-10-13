@@ -10,21 +10,14 @@
 <body>
 
     <div class="contenedor">
-        <form th:action="@{/editarAutor}" method="POST">
-        <input type="hidden" name="id" th:value="${autor.id}">
+        <form th:action="@{/editarEditorial}" method="POST">
+        <input type="hidden" name="id" th:value="${editorial.id}">
 
-            <h2 class="titulo">Editar autor</h2>
+            <h2 class="titulo">Editar Editorial</h2>
             <div class="columnas">
                 <b class="tituloCampo">nombre</b>
                 <input class="campo" type="text" placeholder="ingrese nombre" name="nombre">
 
-            <!--
-             <div class="contenedorBox">
-                    <b class="tituloCampo"> alta</b>
-                    <input class="campoBox" type="radio" name="alta" value="1" /> True
-                    <input class="campoBox" type="radio" name="alta" value="0" /> False
-            </div>
- 			-->
         </div>
                 <button class="agregar">Guardar</button>
             </div>

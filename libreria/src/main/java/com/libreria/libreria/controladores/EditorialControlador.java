@@ -2,11 +2,14 @@ package com.libreria.libreria.controladores;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.libreria.libreria.entidades.Editorial;
 import com.libreria.libreria.errores.ErrorServicio;
 import com.libreria.libreria.servicios.EditorialServicio;
 
@@ -22,6 +25,18 @@ public class EditorialControlador {
 		return "cargarEditorial.html";
 	}
 	
+	
+	@GetMapping("/editarEditorial/{id}")
+	public String editarEditorial(@PathVariable String id, ModelMap model) {
+		Editorial editorial = editorialServicio.buscarPorId(id);
+		model.addAttribute("editorial",editorial);
+		return "editarEditorial.html";
+	}
+	
+	
+	
+	
+	
 	@PostMapping("/cargarEditorial")
 	public String registrarEditorial(@RequestParam String nombre) {
 		
@@ -33,6 +48,13 @@ public class EditorialControlador {
 			e.printStackTrace();
 		}
 		return "cargarEditorial.html";
+	}
+	
+	@PostMapping("/editarEditorial")
+	public String editarAutor(@RequestParam String id,@RequestParam String nombre) throws ErrorServicio {
+		
+		editorialServicio.editarEditorial(id, nombre);
+		return "redirect:/";
 	}
 
 }

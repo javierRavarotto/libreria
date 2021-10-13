@@ -6,12 +6,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.libreria.libreria.entidades.Autor;
 import com.libreria.libreria.entidades.Editorial;
+import com.libreria.libreria.entidades.Libro;
 import com.libreria.libreria.errores.ErrorServicio;
 import com.libreria.libreria.repositorios.AutorRepositorio;
 import com.libreria.libreria.repositorios.EditorialRepositorio;
@@ -42,6 +44,19 @@ List<Editorial> listaEditoriales = editorialRepositorio.findAll();
 		modelo.put("editoriales", listaEditoriales);
 		return "cargarLibro.html";
 	}
+	
+	
+	
+	@GetMapping("/editarLibro/{id}")
+	public String editarAutor(@PathVariable String id, ModelMap model) {
+		Libro libro = libroServicio.buscarPorId(id);
+		model.addAttribute("libro",libro);
+		return "editarAutor.html";
+	}
+	
+	
+	
+	
 	
 	
 	@PostMapping("/cargarLibro")

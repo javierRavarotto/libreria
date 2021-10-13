@@ -16,7 +16,7 @@
 
 				<ol th:each="autor : ${autores}" name="IdAutor"th:if=${autor.alta}>
 					<td class="texto" th:text="${autor.nombre}"></td>
-					<td><button class="botones">Editar</button></td>
+					<td><a class="botones"th:href="@{editarAutor/} +  ${autor.id}">Editar</a></td>
 					<td><button class="botones">Baja</button></td>
 					<tr></tr>
 				</ol>
@@ -31,7 +31,7 @@
 				<ol th:each="libro : ${libros}" name="IdLibro" th:if=${libro.alta}>
 					<td class="texto" th:text="${libro.titulo}"></td>
 					<td><button class="botones">Editar</button></td>
-					<td><button class="botones">Baja</button></td>
+					<td><a class="botones"th:href="@{editarLibro/} +  ${libro.id}">Editar</a></td>
 					<tr></tr>
 				</ol>
 			</table>		</div>
@@ -42,7 +42,7 @@
 
 				<ol th:each="editorial : ${editoriales}" name="IdEditorial" th:if=${editorial.alta}>
 					<td class="texto" th:text="${editorial.nombre}"></td>
-					<td><button class="botones">Editar</button></td>
+					<td><a class="botones"th:href="@{editarEditorial/} +  ${editorial.id}">Editar</a></td>
 					<td><button class="botones">Baja</button></td>
 					<tr></tr>
 				</ol>

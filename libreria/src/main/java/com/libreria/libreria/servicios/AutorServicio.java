@@ -33,18 +33,23 @@ public class AutorServicio {
 	}
 	
 	@Transactional
-	public void editarAutor(String id, String nombre , Boolean alta)throws ErrorServicio {
+	public void editarAutor(String id, String nombre )throws ErrorServicio {
 	
-		if(nombre==null || nombre.isEmpty()) {
-			throw new ErrorServicio("nombre no puede ser nulo");
-		}
+	
 		Autor autor = autorRepositorio.findById(id).get();
 	
 		
 		autor.setNombre(nombre);
-		autor.setAlta(alta);	
+			
 		
 		autorRepositorio.save(autor);	
+	}
+	
+	public Autor buscarPorId(String id) {
+		
+		Autor autor = autorRepositorio.findById(id).get();
+		
+		return autor;
 	}
 	
 	

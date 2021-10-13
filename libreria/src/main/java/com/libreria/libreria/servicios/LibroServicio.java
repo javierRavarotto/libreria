@@ -38,4 +38,32 @@ public class LibroServicio {
 		
 		libroRepositorio.save(libro);
 	}
+	
+	@Transactional
+	public void editarAutor(String id,Long isbn,String titulo,Integer anio,Integer ejemplares,Integer ejemplaresPrestados,
+			Integer EjemplaresRestantes, Autor autor,Editorial editorial )throws ErrorServicio {
+	
+	
+		Libro libro = libroRepositorio.findById(id).get();
+	
+		
+		libro.setIsbn(isbn);
+		libro.setTitulo(titulo);
+		libro.setAnio(anio);
+		libro.setEjemplares(ejemplares);
+		libro.setEjemplaresPrestados(ejemplaresPrestados);
+		libro.setEjemplaresRestantes(EjemplaresRestantes);
+		libro.setAutor(autor);
+		libro.setEditorial(editorial);
+			
+		
+		libroRepositorio.save(libro);	
+	}
+	
+	public Libro buscarPorId(String id) {
+		
+		Libro libro = libroRepositorio.findById(id).get();
+		
+		return libro;
+	}
 }
