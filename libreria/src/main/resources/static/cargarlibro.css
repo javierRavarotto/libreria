@@ -78,3 +78,19 @@ img{
     margin: 2px;
 
 }
+select {
+     background: transparent;
+     border: none;
+     font-size: 14px;
+     height: 30px;
+     padding: 5px;
+     width: 250px;
+     border-bottom:solid rgba(83, 182, 116, 0.8);
+     color:#fff;
+     margin-top: 30px;
+  }
+  select:focus{ 
+	 background: rgba(83, 182, 116, 0.6);
+	
+    
+	}

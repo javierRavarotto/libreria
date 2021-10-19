@@ -3,22 +3,60 @@
 
 <head th:fragment="head">
     <title>Cargar Autor</title>
-    <link rel="stylesheet" th:href="@{/editarAutor.css}">
+    <link rel="stylesheet" th:href="@{/cargarlibro.css}">
+  
     <header th:replace="nav/nav.html"> </header>
 </head>
 
 <body>
 
     <div class="contenedor">
-        <form th:action="@{/editarEditorial}" method="POST">
-        <input type="hidden" name="id" th:value="${editorial.id}">
+        <form th:action="@{/editarLibro}" method="POST">
+        <input type="hidden" name="id" th:value="${libro.id}">
 
-            <h2 class="titulo">Editar Editorial</h2>
+                        <h2 class="titulo">Ingrese datos para editar el libro</h2>
             <div class="columnas">
-                <b class="tituloCampo">nombre</b>
-                <input class="campo" type="text" placeholder="ingrese nombre" name="nombre">
+                      
+            <div  class="camposLibro">
+                <b class="tituloCampo">isbn</b>
+                <input class="campo" type="text" th:value="${libro.isbn}" name="isbn" />
+            </div>
+            <div  class="camposLibro">
+                <b class="tituloCampo">titulo</b>
+                <input class="campo" type="text" th:value="${libro.titulo}" name="titulo" />
+            </div>
+            <div  class="camposLibro">
+                <b class="tituloCampo">año</b>
+                <input class="campo" type="text" th:value="${libro.anio}" name="anio" />
+            </div>
+            <div  class="camposLibro">
+                <b class="tituloCampo">ejemplares</b>
+                <input class="campo" type="text" th:value="${libro.ejemplares}" name="ejemplares" />
+            </div>
+            <div  class="camposLibro">
+                <b class="tituloCampo">ejemplares prestados</b>
+                <input class="campo" type="text" th:value="${libro.ejemplaresPrestados}" name="ejemplaresPrestados" />
+            </div >
+            <div class="camposLibro">
+                <b class="tituloCampo">ejemplares restantes</b>
+                <input class="campo" type="text" th:value="${libro.ejemplaresRestantes}" name="ejemplaresRestantes" />
+            </div>
+            <div class="camposLibro">
+                <b class="tituloCampo">Autores</b>
+ 				<select name="IdAutor">
+ 				<option th:each = "autor : ${autores}" th:value="${autor.id}" th:text="${autor.nombre}" > </option>
+ 				</select>
+            </div> 
+                        <div class="camposLibro">
+                <b class="tituloCampo">editoriales</b>
+ 				<select name="IdEditorial" class=select>
+ 				<option th:each = "editorial : ${editoriales}" th:value="${editorial.id}" th:text="${editorial.nombre}" > </option>
+ 				</select>
+            </div> 
 
+            
         </div>
+ 
                 <button class="agregar">Guardar</button>
             </div>
         </form>

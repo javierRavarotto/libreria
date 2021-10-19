@@ -8,9 +8,10 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.servlet.ModelAndView;
+
 
 import com.libreria.libreria.entidades.Autor;
+
 import com.libreria.libreria.errores.ErrorServicio;
 import com.libreria.libreria.servicios.AutorServicio;
 
@@ -38,7 +39,16 @@ public class AutorControlador {
 	}
 	
 
-
+/*dar de baja o alta un autor*/
+	@GetMapping("/altaBajaAutor/{id}")
+	public String altaBaja(@PathVariable String id, ModelMap model) throws ErrorServicio   {
+		
+		Autor autor = autorServicio.buscarPorId(id);
+		model.addAttribute("autor",autor);
+		autorServicio.altaBaja(id);
+		return "redirect:/";
+	}
+	
 	/*POST*/
 	
 	@PostMapping("/cargarAutor")

@@ -10,6 +10,8 @@ body{
     background-image: url("libreriaFondo.jpg");
     background-repeat: no-repeat;
     background-size: cover;
+	/* background-image:  url("/img/libreriaFondo.jpg");*/
+
 }
 .barra{
  background-color: rgba(138, 136, 136,0.4);

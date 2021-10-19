@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.libreria.libreria.entidades.Autor;
+
 import com.libreria.libreria.errores.ErrorServicio;
 import com.libreria.libreria.repositorios.AutorRepositorio;
 
@@ -53,8 +54,23 @@ public class AutorServicio {
 	}
 	
 	
+	@Transactional
+	public void altaBaja(String id)throws ErrorServicio {
 	
 	
+		Autor autor = autorRepositorio.findById(id).get();
+
+		if(autor.getAlta()==true) {
+			autor.setAlta(false);
+		}else {
+			autor.setAlta(true);
+		}
+	
+			
+		
+		autorRepositorio.save(autor);	
+	}
+
 	
 	
 }

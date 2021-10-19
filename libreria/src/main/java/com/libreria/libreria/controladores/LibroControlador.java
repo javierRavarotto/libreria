@@ -45,17 +45,32 @@ List<Editorial> listaEditoriales = editorialRepositorio.findAll();
 		return "cargarLibro.html";
 	}
 	
+
+	
 	
 	
 	@GetMapping("/editarLibro/{id}")
-	public String editarAutor(@PathVariable String id, ModelMap model) {
+	public String editarLibro(@PathVariable String id, ModelMap model,ModelMap modelo) {
+		List<Autor> listaAutor = autorRepositorio.findAll();
+		List<Editorial> listaEditoriales = editorialRepositorio.findAll();
 		Libro libro = libroServicio.buscarPorId(id);
+		modelo.put("autores", listaAutor);
+		modelo.put("editoriales", listaEditoriales);
+		
 		model.addAttribute("libro",libro);
-		return "editarAutor.html";
+		return "editarLibro.html";
 	}
 	
 	
-	
+	/*dar de baja o alta un libro*/
+	@GetMapping("/altaBajaLibro/{id}")
+	public String altaBaja(@PathVariable String id, ModelMap model) throws ErrorServicio   {
+		
+		Libro libro = libroServicio.buscarPorId(id);
+		model.addAttribute("libro",libro);
+		libroServicio.altaBaja(id);
+		return "redirect:/";
+	}
 	
 	
 	
@@ -70,9 +85,15 @@ List<Editorial> listaEditoriales = editorialRepositorio.findAll();
 			
 			e.printStackTrace();
 		}
-		return "index.html";
+		return "redirect:/";
 	}
 	
 	
-
+	@PostMapping("/editarLibro")
+	public String editarAutor(@RequestParam String id,@RequestParam Long isbn,@RequestParam String titulo,@RequestParam Integer anio,@RequestParam Integer ejemplares,@RequestParam Integer ejemplaresPrestados,
+			@RequestParam Integer ejemplaresRestantes,@RequestParam Autor IdAutor,@RequestParam Editorial IdEditorial) throws ErrorServicio {
+		
+		libroServicio.editarLibro( id,isbn, titulo, anio, ejemplares, ejemplaresPrestados,ejemplaresRestantes,  IdAutor, IdEditorial);
+		return "redirect:/";
+	}
 }

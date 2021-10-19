@@ -30,7 +30,17 @@ public class EditorialControlador {
 	public String editarEditorial(@PathVariable String id, ModelMap model) {
 		Editorial editorial = editorialServicio.buscarPorId(id);
 		model.addAttribute("editorial",editorial);
+		
 		return "editarEditorial.html";
+	}
+	
+	@GetMapping("/altaBajaEditorial/{id}")
+	public String altaBajaEditorial(@PathVariable String id, ModelMap model) throws ErrorServicio   {
+		
+		Editorial editorial = editorialServicio.buscarPorId(id);
+		model.addAttribute("editorial",editorial);
+		editorialServicio.altaBaja(id);
+		return "redirect:/";
 	}
 	
 	
@@ -51,10 +61,10 @@ public class EditorialControlador {
 	}
 	
 	@PostMapping("/editarEditorial")
-	public String editarAutor(@RequestParam String id,@RequestParam String nombre) throws ErrorServicio {
+	public String editarEditorial(@RequestParam String id,@RequestParam String nombre) throws ErrorServicio {
 		
 		editorialServicio.editarEditorial(id, nombre);
 		return "redirect:/";
 	}
-
+	
 }

@@ -66,14 +66,17 @@ color: #fff;
    
     margin-left: 17%;
     margin-right: 8%;
+ 
    
   
 }
 
 .contenedorBox{
+	color:#fff;
     margin: auto;
     text-align: left;
     width: 47%;
+      
 }
 .campo::placeholder { 
     color: #fff;
@@ -93,3 +96,4 @@ img{
     margin: 2px;
 
 }
+

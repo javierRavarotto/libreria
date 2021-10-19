@@ -1,11 +1,11 @@
-package com.libreria.libreria.servicios;
+	package com.libreria.libreria.servicios;
 
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.libreria.libreria.entidades.Autor;
+
 import com.libreria.libreria.entidades.Editorial;
 import com.libreria.libreria.errores.ErrorServicio;
 import com.libreria.libreria.repositorios.EditorialRepositorio;
@@ -25,7 +25,7 @@ public class EditorialServicio {
 		Editorial editorial =new Editorial();
 		
 		editorial.setNombre(nombre);
-		editorial.setAlta(false);
+		editorial.setAlta(true);
 		
 		editorialRepositorio.save(editorial);
 	}
@@ -50,5 +50,26 @@ public class EditorialServicio {
 		
 		return editorial;
 	}
+	
+	
+	
+	@Transactional
+	public void altaBaja(String id)throws ErrorServicio {
+	
+	
+		Editorial editorial = editorialRepositorio.findById(id).get();
+
+		if(editorial.getAlta()==true) {
+			editorial.setAlta(false);
+		}else {
+			editorial.setAlta(true);
+		}
+	
+			
+		
+		editorialRepositorio.save(editorial);	
+	}
+	
+
 
 }

@@ -4,48 +4,110 @@
 <head th:fragment="head">
 	<title>Inicio</title>
 	<link rel="stylesheet" href="index.css" />
+	<header th:replace="nav/nav.html"> </header>
+
 </head>
 
 <body>
-	<header th:replace="nav/nav.html"> </header>
+
 	<div class="contenedor">
+		<div >
+	
+			<a  class="altaBaja" th:href="@{/mostrarAlta/}" action="mostrarAlta" method="POST">alta</a>
+		
+			<a class="altaBaja" th:href="@{/mostrarBaja/}" action="mostrarBaja" method="POST">baja</a>
+		</div>
 		<div class="contenedorAutores">
-			<h3>Algunos de nuestros autores</h3>
 
+			<!--dados de lata -->
 			<table class="listas">
+				<div th:if=${altas}>
+					<h3>Nuestros autores</h3>
+					<ol th:each="autor : ${autores}" name="IdAutor" th:if=${autor.alta}>
+						<td class="texto" th:text="${autor.nombre}"></td>
+						<td><a class="botones" th:href="@{editarAutor/} +  ${autor.id}">Editar</a></td>
+						<td><a class="botones" th:href="@{altaBajaAutor/} +  ${autor.id}" action="altaBajaAutor"
+								method="POST">Baja</a></td>
 
-				<ol th:each="autor : ${autores}" name="IdAutor"th:if=${autor.alta}>
-					<td class="texto" th:text="${autor.nombre}"></td>
-					<td><a class="botones"th:href="@{editarAutor/} +  ${autor.id}">Editar</a></td>
-					<td><button class="botones">Baja</button></td>
-					<tr></tr>
-				</ol>
+						<tr></tr>
+					</ol>
+				</div>
+				<!--dados de baja -->
+
+				<div th:unless=${altas}>
+					<h3>Nuestros autores dados de baja</h3>
+					<ol th:each="autor : ${autores}" name="IdAutor" th:unless=${autor.alta}>
+						<td class="texto" th:text="${autor.nombre}"></td>
+						<td><a class="botones" th:href="@{editarAutor/} +  ${autor.id}">Editar</a></td>
+						<td><a class="botones" th:href="@{altaBajaAutor/} +  ${autor.id}" action="altaBajaAutor"
+								method="POST">Alta</a></td>
+
+						<tr></tr>
+					</ol>
+				</div>
+
+
 			</table>
 		</div>
 
 		<div class="contenedorLibros">
-			<h3>Algunos de nuestros libros</h3>
 
+			<!--dados de lata -->
 			<table class="listas">
-
-				<ol th:each="libro : ${libros}" name="IdLibro" th:if=${libro.alta}>
-					<td class="texto" th:text="${libro.titulo}"></td>
-					<td><button class="botones">Editar</button></td>
-					<td><a class="botones"th:href="@{editarLibro/} +  ${libro.id}">Editar</a></td>
-					<tr></tr>
-				</ol>
-			</table>		</div>
+				<div th:if=${altas}>
+					<h3>Nuestros libros</h3>
+					<ol th:each="libro : ${libros}" name="IdLibro" th:if=${libro.alta}>
+						<td class="texto" th:text="${libro.titulo}"></td>
+						<td><a class="botones" th:href="@{editarLibro/} +  ${libro.id}">Editar</a></td>
+						<td><a class="botones" th:href="@{altaBajaLibro/} +  ${libro.id}" action="altaBajaLibro"
+								method="POST">Baja</a></td>
+						<tr></tr>
+					</ol>
+				</div>
+				<!--dados de baja -->
+				<div th:unless=${altas}>
+					<h3>Nuestros libros dados de baja</h3>
+					<ol th:each="libro : ${libros}" name="IdLibro" th:unless=${libro.alta}>
+						<td class="texto" th:text="${libro.titulo}"></td>
+						<td><a class="botones" th:href="@{editarLibro/} +  ${libro.id}">Editar</a></td>
+						<td><a class="botones" th:href="@{altaBajaLibro/} +  ${libro.id}" action="altaBajaLibro"
+								method="POST">Alta</a></td>
+						<tr></tr>
+					</ol>
+				</div>
+			</table>
+		</div>
 		<div class="ContenedorEditoriales">
-			<h3>Algunas de nuestras Editoriales</h3>
 
+			<!--dados de lata -->
 			<table class="listas">
+				<div th:if=${altas}>
+					<h3>Nuestras Editoriales</h3>
+					<ol th:each="editorial : ${editoriales}" name="IdEditorial" th:if=${editorial.alta}>
+						<td class="texto" th:text="${editorial.nombre}"></td>
+						<td><a class="botones" th:href="@{editarEditorial/} +  ${editorial.id}">Editar</a></td>
 
-				<ol th:each="editorial : ${editoriales}" name="IdEditorial" th:if=${editorial.alta}>
-					<td class="texto" th:text="${editorial.nombre}"></td>
-					<td><a class="botones"th:href="@{editarEditorial/} +  ${editorial.id}">Editar</a></td>
-					<td><button class="botones">Baja</button></td>
-					<tr></tr>
-				</ol>
+
+						<td><a class="botones" th:href="@{altaBajaEditorial/} +  ${editorial.id}"
+								action="altaBajaEditorial" method="POST">Baja</a></td>
+
+						<tr></tr>
+					</ol>
+				</div>
+				<!--dados de baja -->
+				<div th:unless=${altas}>
+					<h3>Nuestras Editoriales dados de baja</h3>
+					<ol th:each="editorial : ${editoriales}" name="IdEditorial" th:unless=${editorial.alta}>
+						<td class="texto" th:text="${editorial.nombre}"></td>
+						<td><a class="botones" th:href="@{editarEditorial/} +  ${editorial.id}">Editar</a></td>
+
+
+						<td><a class="botones" th:href="@{altaBajaEditorial/} +  ${editorial.id}"
+								action="altaBajaEditorial" method="POST">Alta</a></td>
+
+						<tr></tr>
+					</ol>
+				</div>
 			</table>
 
 		</div>

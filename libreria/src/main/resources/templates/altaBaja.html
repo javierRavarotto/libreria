@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head th:fragment="head">
+	<title>Cargar Autor</title>
+	<link rel="stylesheet" th:href="@{/editarAutor.css}">
+	<header th:replace="nav/nav.html"> </header>
+</head>
+
+<body>
+
+	<div class="contenedor">
+		<form action="altaBaja" method="POST">
+			<input type="hidden" name="id" th:value="${editorial.id}"/>
+			
+			<b class="tituloCampo"> editorial</b>
+			<input  name="alta" th:value="${editorial.nombre}"/>
+			
+			<div class="contenedorBox">
+				<b class="tituloCampo"> alta</b>
+				<input class="campoBox" type="radio" name="alta" value=true /> True
+				<input class="campoBox" type="radio" name="alta" value=false /> False
+			</div>
+	</div>
+	<button class="agregar">Guardar</button>
+	
+	</form>
+	</div>
+
+</body>
+
+</html>

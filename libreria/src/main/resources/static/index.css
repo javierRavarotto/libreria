@@ -15,7 +15,7 @@ body{
 .barra{
  background-color: rgba(138, 136, 136,0.4);
  width: 98%;
- margin: 1%; 
+margin:1%; 
  border: outset 4px rgba(83, 182, 116, 0.8);
 text-align: center;
 }
@@ -28,14 +28,14 @@ text-align: center;
     text-align: center;
     background-color:tarsparent;
     width: 99%;
-    border: solid 4px red;
-    
-}
+   
+
+}   
 .contenedorLibros{  
      background-color: rgba(138, 136, 136,0.4);
     border-radius: 10px;
     width: 29%;
-    height: 500px;    
+    height: 520px;    
     display:inline-block;
     margin:auto;
       overflow-y: scroll;
@@ -46,7 +46,7 @@ text-align: center;
     background-color: rgba(138, 136, 136,0.4);
     border-radius: 10px;
     width: 29%;
-height: 500px;
+height: 520px;
 margin:auto;
    overflow-y: scroll;
   scrollbar-color: rgba(0, 0, 0, .5) rgba(0, 0, 0, 0);
@@ -71,7 +71,7 @@ margin:auto;
     width: 29%;
     display:inline-block;
 margin:auto;
-height: 500px;    
+height: 520px;    
    overflow-y: scroll;
  
 }
@@ -79,7 +79,7 @@ height: 500px;
 h3{
     text-align: center;
     display: inline-flex;
-    background-color: aqua;
+    color:#fff;	
    height: 20px;
    margin-left: auto;
     margin-right: auto;
@@ -91,7 +91,7 @@ h3{
     margin: 2%;
     text-align: left;
   
-    padding: 5px;
+    padding: 2px;
     
 }
 .listass{
@@ -106,23 +106,42 @@ h3{
 .botones{
     color: #fff;
     background:rgba(110, 245, 155, 0.404);
-    padding: 5px;
+    padding: 8px;
     border-radius: 5px;
     cursor: pointer;
     transition: background ease-in .4s;
+    margin:2%;
+
   
 }
 .botones:hover{
     background:rgba(110, 245, 155, 0.8);
-    padding: 5px;
+    padding: 8px;
     border-radius: 5px;
     cursor: pointer;
 }
 .texto{
-    width: 80%;
+    width: 70%;
     color: #fff;
+	    
+    border-bottom: rgba(110, 245, 155, 0.8) solid 2px;
+    margin-top:-5px;
+height: 36px;
     
-    border-bottom: rgba(110, 245, 155, 0.8) solid 1px;
-
-    
+}
+.altaBaja{
+	width:5%;
+	padding:5px;
+	color: #fff;
+    background:rgba(110, 245, 155, 0.404);
+    margin-bottom: 1%;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background ease-in .4s;	
+}
+.altaBaja:hover{
+    background:rgba(110, 245, 155, 0.8);
+    padding: 5px;
+    border-radius: 5px;
+    cursor: pointer;
 }
